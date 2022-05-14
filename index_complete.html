@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myMemoPad</title>
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+</head>
+<body>
+<header>
+<h1>MemoPad</h1>
+</header>
+<main>
+    <button id="btn">Add ToDo</button>
+    <ul>
+        <li id="save">Save</li>
+        <li id="clear">Clear</li>
+    </ul>
+    <!-- カード -->
+    <div id="cards"></div>
+</main>
+<script>
+
+// ボタンクリックイベント→カードを表示→
+
+//1.Save クリックイベント
+let i=0;i<localStorage.length; 
+$("#save").on("click",function(){
+    i = i + 1;
+    console.log(i)
+    const html =  `<div id="card${i}" style="width:300px;height:300px" class="card"><textarea id="key${i}"></textarea><textarea id="memo${i}"></textarea></div>`;
+    $("#cards").append(html);
+    const key = document.getElementById("key"+i).value;
+    const memo = document.getElementById("memo"+i).value;
+    localStorage.setItem(key,memo);
+});
+
+//2.clear クリックイベント
+$("#clear").on("click",function(){
+    localStorage.clear();
+    $("#cards").empty();
+});
+
+// 3.ページ読み込み：保存データ取得表示
+for(let i=0; i<localStorage.length; i++){
+    const key   = localStorage.key(i);
+    const memo = localStorage.getItem(key);
+    const html = `<div id="card${i}" style="width:300px;height:300px" class="card"><textarea id="key${i}">${key}</textarea><textarea id="memo${i}">${memo}</textarea></div>`;
+    $("#cards").append(html);
+}
+
+</script>
+<footer><small>G's</small></footer>
+</body>
+</html>
