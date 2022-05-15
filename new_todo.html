@@ -10,31 +10,30 @@
 <header>
 <h1>To Do ルーレット</h1>
 </header>
-<main>
-    <!-- To Doを書く -->
-    <div class="wrapper">
-        <div class="writing">
-            <h2>To Doを書き出す</h2>
-            <input type="text" id="key">
-            <textarea id="memo"></textarea>
+
+
+<main class="relative">
+    <div class="content">
+        <div class="item">
+            <h2>✏️To Doを書き出す</h2>
+            <input type="text" id="key" style="border: none;">
+            <textarea id="memo" style="border: none;"></textarea>
             <ul>
                 <li id="save">Save</li>
                 <li id="clear">Clear</li>
             </ul>
         </div>
-
-
-        <div class="roulet">
-            <!-- ルーレットを回す ボタン-->
-            <button id ="start">スタート</button>
-            <button id ="stop">ストップ</button>
-            <button id ="reset">リセット</button>
+        <div class="item2">
+            <h2 >🎯ルーレットを回す</h2>
+            <button id ="start" class="start">スタート</button>
+            <button id ="stop" class="stop">ストップ</button>
+            </div>
         </div>
-    </div>
-</main>
+
 <div id="cards" class="cards">
 <!-- ここに追加データが挿入される -->
 </div>
+</main>
 <script>
 
 //1.Save クリックイベント
@@ -53,12 +52,14 @@ $("#save").on("click",function(){
     const html = `<table class="card" id="card${id_num}"><tr class="title"><td>${key}</td></tr><tr class="detail"><td>${value}</td></tr></table>`;
     $("#cards").append(html);
 
+
 });
 
 //2.clear クリックイベント
 $("#clear").on("click",function(){
     localStorage.clear();
     $("#cards").empty();
+    location.reload();
 });
 
 //3.ページ読み込み：保存データ取得表示
@@ -82,9 +83,9 @@ for(let i=0; i<localStorage.length; i++){
     function start_set(){//start状態
         document.getElementById("start").disabled = true;
         document.getElementById("stop").disabled = false;
-        document.getElementById("reset").disabled = false;
+        // document.getElementById("reset").disabled = false;
         if(first === false){
-            interval = setInterval(start_go,300);
+            interval = setInterval(start_go,150);
             first = true;
         }         
     }
@@ -124,34 +125,34 @@ for(let i=0; i<localStorage.length; i++){
         }
     }
  
-    function reset_set(){//リセット押下
-        clearInterval(interval);
-        first = false;
-        document.getElementById("start").disabled = false;
+    // function reset_set(){//リセット押下
+    //     clearInterval(interval);
+    //     first = false;
+    //     document.getElementById("start").disabled = false;
  
-        for(var j = 1; j < id_array.length ; j++){
-            let all = document.getElementById("card" + j);
-            all.classList.remove('selecting');
-            all.classList.remove('decide');
-        }
-       num = id_array;
-    }
+    //     for(var j = 1; j < id_array.length ; j++){
+    //         let all = document.getElementById("card" + j);
+    //         all.classList.remove('selecting');
+    //         all.classList.remove('decide');
+    //     }
+    //    num = id_array;
+    // }
         const starter = document.getElementById("start");
         const stopper = document.getElementById("stop");
-        const resetter = document.getElementById("reset");
+        // const resetter = document.getElementById("reset");
  
         starter.addEventListener("click",start_set,false);
         stopper.addEventListener("click",stop_set,false);
-        resetter.addEventListener("click",reset_set,false);
+        // resetter.addEventListener("click",reset_set,false);
         document.getElementById("stop").disabled = true;
-        document.getElementById("reset").disabled = true;
+        // document.getElementById("reset").disabled = true;
 
 
 
 
 </script>
 <div class="footer_wrapper">
-    <footer><small>G's</small></footer>
+    <footer><small>G's ACADEMY</small></footer>
 </div>
 </body>
 </html>
