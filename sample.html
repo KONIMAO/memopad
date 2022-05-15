@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample Code</title>
+    <link rel="stylesheet" href="css\styles.css">
+  </head>
+  <body>
+    <div>
+      <p>ボタンをクリックする毎に配列の要素が追加されていきます。</p>
+      <input type="button" id="pushButton" value="末尾に追加">
+      <input type="button" id="clearbBtton" value="クリア">
+      <p>末尾に追加：<span id="output1"></span></p>
+      <script src="js\main.js"></script>
+    </div>
+  </body>
+  <script>
+    let output1 = document.getElementById("output1");
+    let pushButton = document.getElementById("pushButton");
+    let clearbBtton = document.getElementById("clearbBtton");
+    let pushArray = [];
+    let i = 0;
+
+
+    pushButton.addEventListener("click", () => {
+    pushArray.push(i);
+    output1.textContent = pushArray;
+    i++;
+    console.log(pushArray);
+    });
+
+
+    clearbBtton.addEventListener("click", () => {
+    output1.textContent = "";
+    pushArray = [];
+    i = 0;
+    j = 0;
+    });
+  </script>
+</html>
