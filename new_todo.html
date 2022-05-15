@@ -13,22 +13,22 @@
 
 
 <main class="relative">
-    <div class="content">
-        <div class="item">
+    <ul class="content">
+        <li class="item">
             <h2>✏️To Doを書き出す</h2>
             <input type="text" id="key" style="border: none;">
             <textarea id="memo" style="border: none;"></textarea>
-            <ul>
+            <ul class="save">
                 <li id="save">Save</li>
                 <li id="clear">Clear</li>
             </ul>
-        </div>
-        <div class="item2">
+        </li>
+        <li class="item2">
             <h2 >🎯ルーレットを回す</h2>
             <button id ="start" class="start">スタート</button>
             <button id ="stop" class="stop">ストップ</button>
-            </div>
-        </div>
+        </li>
+    </ul>
 
 <div id="cards" class="cards">
 <!-- ここに追加データが挿入される -->
@@ -124,19 +124,6 @@ for(let i=0; i<localStorage.length; i++){
         document.getElementById("start").disabled = true;
         }
     }
- 
-    // function reset_set(){//リセット押下
-    //     clearInterval(interval);
-    //     first = false;
-    //     document.getElementById("start").disabled = false;
- 
-    //     for(var j = 1; j < id_array.length ; j++){
-    //         let all = document.getElementById("card" + j);
-    //         all.classList.remove('selecting');
-    //         all.classList.remove('decide');
-    //     }
-    //    num = id_array;
-    // }
         const starter = document.getElementById("start");
         const stopper = document.getElementById("stop");
         // const resetter = document.getElementById("reset");

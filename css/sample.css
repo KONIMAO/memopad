@@ -25,8 +25,9 @@ h1 {
 
 h2 {
 font-size: 80%;
-margin-left: 3%;
-width: 30%;
+margin-left: 10%;
+width: 80%;
+text-align: left;
 }
 main {
   width: 100%;
@@ -70,7 +71,7 @@ ul {
   padding: 0;
   display: table; /* 定義 */
   table-layout: fixed;
-  width: 50%;
+  width: 100%;
   font-size: 80%;
   margin: 0 3%;
   text-align: center;
@@ -79,32 +80,35 @@ li {
   list-style-type: none;
   background-color: #ffeead;
   display: table-cell; /* 定義 */
-  cursor: pointer;
+  
   color: #13334c;
 }
-li:hover {
+
+.save{
+  cursor: pointer;
+}
+
+ul.save:hover {
   color: #d9534f;
 }
 textarea {
-  margin: 10px 3%;
-  width: 50%;
+  margin: 10px 0;
+  width: 90%;
   height: 100px;
   font-size: 80%;
   background-color: #f6f6e9;
-  border-radius: 5% 5%/ 30% 30% ;
+  border-radius: 5% 5%/ 20% 20% ;
 }
 #key {
-  margin: 0 3%;
-  width: 50%;
+  margin: 0 0;
+  width: 90%;
   font-size: 80%;
   background-color: #f6f6e9;
   border-radius: 5% 5%/ 35% 35% ;
 
 }
 
-.item{
-  display: block;
-}
+
 td {
   font-size: 16px;
   /* background-color: rgb(241, 239, 239); */
